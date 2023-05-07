@@ -1,7 +1,19 @@
 import "./Forms.css";
 import TextFild from "../TextFild";
+import DropDown from "../DropDown";
 
 const Forms = () => {
+  
+  let itens = [
+    'Programação',
+    'Front-End',
+    'Data Science',
+    'Devops',
+    'Ux e Design',
+    'Mobile',
+    'Inovação e Gestão'
+  ]
+
   return (
     <section className="forms">
       <form action="">
@@ -11,7 +23,8 @@ const Forms = () => {
         <TextFild label="Nome" placeholder="Digite seu nome" />
         <TextFild label="Cargo" placeholder="Digite seu cargo" />
         <TextFild label="Imagem" placeholder="Informe o endereço de imagem" />
-        <TextFild label="Time" />
+        <DropDown label="Time" itens = {itens}/>
+
       </form>
     </section>
   );

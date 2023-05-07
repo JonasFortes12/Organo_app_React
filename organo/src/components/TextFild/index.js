@@ -3,7 +3,7 @@ import './TextFild.css'
 const TextFild = (props) => {
     return (
         
-        <div className="campo-texto" >
+        <div className="text-fild" >
             <label>{props.label}</label>
             <input placeholder={props.placeholder}/>
         </div>        
