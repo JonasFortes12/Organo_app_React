@@ -1,13 +1,23 @@
-import Banner from './components/Banner';
-import Forms from './components/Forms';
-
+import { useState } from "react";
+import Banner from "./components/Banner";
+import Forms from "./components/Forms";
 
 function App() {
-  
-  return ( 
+  const [collaborators, setCollaborators] = useState([]);
+
+  const onRegisterCollaborator = (collaborator) => {
+
+    console.log(collaborator)
+    
+    setCollaborators([...collaborators, collaborator]);
+    
+    console.log(collaborators);
+  };
+
+  return (
     <div className="App">
       <Banner />
-      <Forms />
+      <Forms onRegisterCollaborator={onRegisterCollaborator} />
     </div>
   );
 }

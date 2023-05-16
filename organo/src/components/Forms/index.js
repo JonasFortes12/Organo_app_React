@@ -15,9 +15,15 @@ let itens = [
 ]
 
 const Forms = (props) => {
+  
   const formSave = (event) => {
     event.preventDefault();
-    console.log(name, role, imageLink, team);
+    props.onRegisterCollaborator({
+      name,
+      role,
+      imageLink,
+      team
+    })
   };
 
   const [name, setName] = useState("");
