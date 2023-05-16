@@ -2,26 +2,71 @@ import "./Forms.css";
 import TextFild from "../TextFild";
 import DropDown from "../DropDown";
 import Button from "../Button";
+import { useState } from "react";
+
+let itens = [
+  'Programação',
+  'Front-End',
+  'Data Science',
+  'Devops',
+  'Ux e Design',
+  'Mobile',
+  'Inovação e Gestão'
+]
 
 const Forms = (props) => {
+  const formSave = (event) => {
+    event.preventDefault();
+    console.log(name, role, imageLink, team);
+  };
 
-  const formSave = (event) =>{
-    event.preventDefault()
-    console.log("Formulário enviado!!")
-  }
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [imageLink, setImageLink] = useState("");
+  const [team, setTeam] = useState("");
 
   return (
     <section className="forms">
       <form onSubmit={formSave}>
-
         <h2>Preencha os dados para criar o card do colaborador.</h2>
 
-        <TextFild label="Nome" placeholder="Digite seu nome" required = {true} />
-        <TextFild label="Cargo" placeholder="Digite seu cargo" required = {true} />
-        <TextFild label="Imagem" placeholder="Informe o endereço de imagem" />
-        <DropDown label="Time" itens = {props.itens} required = {true}/>
+        <TextFild
+          label="Nome"
+          placeholder="Digite seu nome"
+          required={true}
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+        />
+        <TextFild
+          label="Cargo"
+          placeholder="Digite seu cargo"
+          required={true}
+          value={role}
+          onChange={(event) => {
+            setRole(event.target.value);
+          }}
+        />
+        <TextFild
+          label="Imagem"
+          placeholder="Informe o endereço de imagem"
+          required={true}
+          value={imageLink}
+          onChange={(event) => {
+            setImageLink(event.target.value);
+          }}
+        />
+        <DropDown
+          label="Time"
+          itens={itens}
+          required={true}
+          value={team}
+          onChange={(event) => {
+            setTeam(event.target.value);
+          }}
+        />
         <Button>Criar Card</Button>
-
       </form>
     </section>
   );
