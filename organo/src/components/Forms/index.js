@@ -4,16 +4,6 @@ import DropDown from "../DropDown";
 import Button from "../Button";
 import { useState } from "react";
 
-let itens = [
-  'Programação',
-  'Front-End',
-  'Data Science',
-  'Devops',
-  'Ux e Design',
-  'Mobile',
-  'Inovação e Gestão'
-]
-
 const Forms = (props) => {
   
   const formSave = (event) => {
@@ -65,7 +55,7 @@ const Forms = (props) => {
         />
         <DropDown
           label="Time"
-          itens={itens}
+          itens={props.itens}
           required={true}
           value={team}
           onChange={(event) => {

@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Forms onRegisterCollaborator={onRegisterCollaborator} />
+      <Forms itens={teams.map(team => team.name)} onRegisterCollaborator={onRegisterCollaborator} />
       {
         teams.map(team =>{
           return(
