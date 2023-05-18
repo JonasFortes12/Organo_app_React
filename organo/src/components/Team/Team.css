@@ -11,3 +11,9 @@
     padding-bottom: 8px;
 
 }
+
+.team div {
+    display: flex;
+    justify-content: center;
+    
+}

@@ -1,4 +1,5 @@
 import "./Team.css";
+import Card from "../Card";
 
 const Team = (props) => {
   const styleSection = {
@@ -12,6 +13,12 @@ const Team = (props) => {
   return (
     <section className="team" style={styleSection}>
       <h3 style={styleH3}>{props.teamName}</h3>
+      <div>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+        <Card></Card>
+      </div>
     </section>
   );
 };
