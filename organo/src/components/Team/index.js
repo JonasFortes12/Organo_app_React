@@ -1,16 +1,19 @@
-import './Team.css'
+import "./Team.css";
 
-const Team = (props) =>{
-    return (
-        <section className='team'>
-            <h3>{props.teamName}</h3>
+const Team = (props) => {
+  const styleSection = {
+    backgroundColor: props.secondaryColor,
+  }
 
-        </section>
+  const styleH3 = {
+    borderColor: props.primaryColor
+  }
 
-    )
-}
-
-
+  return (
+    <section className="team" style={styleSection}>
+      <h3 style={styleH3}>{props.teamName}</h3>
+    </section>
+  );
+};
 
 export default Team;
-
