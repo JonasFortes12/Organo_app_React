@@ -14,6 +14,10 @@ const Forms = (props) => {
       imageLink,
       team
     })
+    setName('')
+    setRole('')
+    setImageLink('')
+    setTeam('')
   };
 
   const [name, setName] = useState("");

@@ -11,7 +11,7 @@ const Team = (props) => {
   };
 
   return (
-    <section className="team" style={styleSection}>
+    (props.collaborators.length > 0) && <section className="team" style={styleSection}>
       <h3 style={styleH3}>{props.teamName}</h3>
       <div className="cardCollaborator">
         {props.collaborators.map((collaborator) => (
