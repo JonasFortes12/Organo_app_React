@@ -7,12 +7,9 @@ function App() {
   const [collaborators, setCollaborators] = useState([]);
 
   const onRegisterCollaborator = (collaborator) => {
-
-    console.log(collaborator)
     
     setCollaborators([...collaborators, collaborator]);
     
-    console.log(collaborators); 
   };
 
   const teams = [
@@ -66,6 +63,7 @@ function App() {
             teamName={team.name}
             primaryColor={team.primaryColor}
             secondaryColor={team.secondaryColor}
+            collaborators={collaborators}
             ></Team>
           )
         })
