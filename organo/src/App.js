@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./components/Banner";
 import Forms from "./components/Forms";
 import Team from "./components/Team";
+import Footer from "./components/Footer";
 
 function App() {
   const [collaborators, setCollaborators] = useState([]);
@@ -68,7 +69,7 @@ function App() {
           )
         })
       }
-
+      <Footer></Footer>
 
     </div>
   );
