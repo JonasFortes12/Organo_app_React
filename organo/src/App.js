@@ -8,7 +8,7 @@ function App() {
   const [collaborators, setCollaborators] = useState([]);
 
   const onRegisterCollaborator = (collaborator) => {
-    
+    debugger
     setCollaborators([...collaborators, collaborator]);
     
   };
