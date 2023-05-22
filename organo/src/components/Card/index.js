@@ -1,12 +1,17 @@
 import './Card.css'
 
 
-const Card = ({name, role, imageLink}) =>{
+const Card = ({name, role, imageLink, colorHeader}) =>{
+    
+    const styleHeaderCard = {
+        backgroundColor: colorHeader
+    }
+
     return(
         
         <div className='card'>
 
-            <div className='header'>
+            <div style={styleHeaderCard} className='header'>
                 <img src={imageLink} alt={name} />
             </div>
 

@@ -20,6 +20,7 @@ const Team = (props) => {
             name={collaborator.name}
             role={collaborator.role}
             imageLink={collaborator.imageLink}
+            colorHeader={props.primaryColor}
           ></Card>
         ))}
       </div>
