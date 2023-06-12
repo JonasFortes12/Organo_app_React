@@ -1,17 +1,28 @@
 import "./Team.css";
 import Card from "../Card";
+import hexToRgba from 'hex-to-rgba';
 
 const Team = (props) => {
+  
+  
   const styleSection = {
-    backgroundColor: props.secondaryColor,
+    backgroundColor: hexToRgba(props.color, 0.4)
   };
 
   const styleH3 = {
-    borderColor: props.primaryColor,
+    borderColor: props.color,
   };
 
   return (
     (props.collaborators.length > 0) && <section className="team" style={styleSection}>
+      <input 
+      type="color" 
+      value={props.color} 
+      onChange={(event)=>{
+        props.onChangeTeamsColor(event.target.value, props.teamName)
+      }}
+      ></input>
+      
       <h3 style={styleH3}>{props.teamName}</h3>
       <div className="cardCollaborator">
         {props.collaborators.map((collaborator, index) => {

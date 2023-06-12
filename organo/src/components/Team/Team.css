@@ -1,5 +1,6 @@
 
 .team {
+    position: relative;
     text-align: center;
     padding: 32px;
 }
@@ -18,4 +19,10 @@
     margin-top: 32px;
     flex-wrap: wrap;
     
+}
+
+.team input{
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }

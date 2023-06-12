@@ -18,45 +18,47 @@ function App() {
 
   };
 
-  const teams = [
+  const onChangeTeamsColor = (value, teamName) =>{
+    const teamsChanged = teams.map(team=>{
+      if(team.name === teamName ){
+        team.color = value
+      }
+      return team
+    })
+    setTeams(teamsChanged)
+  }
+
+  const [teams, setTeams] = useState([
     {
       name: 'Programação',
-      primaryColor: '#57C278',
-      secondaryColor: '#D9F7E9'
+      color: '#57C278'
     },
     {
       name: 'Front-End',
-      primaryColor: '#82CFFA',
-      secondaryColor: '#E8F8FF'
+      color: '#82CFFA'
     },
     {
       name: 'Data Science',
-      primaryColor: '#A6D157',
-      secondaryColor: '#F0F8E2'
+      color: '#A6D157'
     },
     {
       name: 'Devops',
-      primaryColor: '#E06B69',
-      secondaryColor: '#FDE7E8'
+      color: '#E06B69'
     },
     {
       name: 'Ux e Design',
-      primaryColor: '#DB6EBF',
-      secondaryColor: '#FAE9F5'
+      color: '#DB6EBF'
     },
     {
       name: 'Mobile',
-      primaryColor: '#FFBA05',
-      secondaryColor: '#FFF5D9'
+      color: '#FFBA05'
     },
     {
       name: 'Inovação e Gestão',
-      primaryColor: '#FF8A29',
-      secondaryColor: '#FFEEDF'
+      color: '#FF8A29'
     }
-
-  ]
-
+  ])
+ 
   return (
     <div className="App">
       <Banner />
@@ -67,12 +69,12 @@ function App() {
             <Team 
             key={index} 
             teamName={team.name}
-            primaryColor={team.primaryColor}
-            secondaryColor={team.secondaryColor}
+            color={team.color}
             collaborators={collaborators.filter(
                 collaborator => collaborator.team === team.name
             )}
             onDeleteCard={onDeleteCollaborator}
+            onChangeTeamsColor={onChangeTeamsColor}
             ></Team>
           )
         })
