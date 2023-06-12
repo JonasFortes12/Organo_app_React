@@ -8,9 +8,14 @@ function App() {
   const [collaborators, setCollaborators] = useState([]);
 
   const onRegisterCollaborator = (collaborator) => {
-    debugger
     setCollaborators([...collaborators, collaborator]);
     
+  };
+
+  const onDeleteCollaborator = (collaborator) => {
+
+    console.log("Colaborador deletado!");
+
   };
 
   const teams = [
@@ -57,14 +62,17 @@ function App() {
       <Banner />
       <Forms itens={teams.map(team => team.name)} onRegisterCollaborator={onRegisterCollaborator} />
       {
-        teams.map(team =>{
+        teams.map((team, index) =>{
           return(
             <Team 
-            key={team.name} 
+            key={index} 
             teamName={team.name}
             primaryColor={team.primaryColor}
             secondaryColor={team.secondaryColor}
-            collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
+            collaborators={collaborators.filter(
+                collaborator => collaborator.team === team.name
+            )}
+            onDeleteCard={onDeleteCollaborator}
             ></Team>
           )
         })

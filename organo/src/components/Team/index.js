@@ -14,15 +14,18 @@ const Team = (props) => {
     (props.collaborators.length > 0) && <section className="team" style={styleSection}>
       <h3 style={styleH3}>{props.teamName}</h3>
       <div className="cardCollaborator">
-        {props.collaborators.map((collaborator) => (
-          <Card
-            key={collaborator.name}
-            name={collaborator.name}
-            role={collaborator.role}
-            imageLink={collaborator.imageLink}
-            colorHeader={props.primaryColor}
-          ></Card>
-        ))}
+        {props.collaborators.map((collaborator, index) => {
+          return (
+            <Card
+              key={index}
+              name={collaborator.name}
+              role={collaborator.role}
+              imageLink={collaborator.imageLink}
+              colorHeader={props.primaryColor}
+              onDelete={props.onDeleteCard}
+            ></Card>
+          )
+        })}
       </div>
     </section>
   );
