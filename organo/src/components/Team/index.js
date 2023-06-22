@@ -19,7 +19,7 @@ const Team = (props) => {
       type="color" 
       value={props.color} 
       onChange={(event)=>{
-        props.onChangeTeamsColor(event.target.value, props.teamName)
+        props.onChangeTeamsColor(event.target.value, props.teamId)
       }}
       ></input>
       
@@ -32,7 +32,7 @@ const Team = (props) => {
               name={collaborator.name}
               role={collaborator.role}
               imageLink={collaborator.imageLink}
-              colorHeader={props.primaryColor}
+              colorHeader={props.color}
               onDelete={props.onDeleteCard}
             ></Card>
           )
