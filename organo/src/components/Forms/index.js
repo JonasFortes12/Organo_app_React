@@ -20,13 +20,29 @@ const Forms = (props) => {
     setTeam('')
   };
 
+  const formRegisterNewTeam = (event) =>{
+    event.preventDefault();
+    props.onRegisterNewTeam({
+      name: newTeamName,
+      color: teamColor
+    });
+
+    setNewTeamName('');
+    setTeamColor('');
+  }
+
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [team, setTeam] = useState("");
 
+  const [teamColor, setTeamColor] = useState("");
+  const [newTeamName, setNewTeamName] = useState("");
+
+
   return (
     <section className="forms">
+
       <form onSubmit={formSave}>
         <h2>Preencha os dados para criar o card do colaborador.</h2>
 
@@ -68,6 +84,31 @@ const Forms = (props) => {
         />
         <Button>Criar Card</Button>
       </form>
+
+      <form onSubmit={formRegisterNewTeam}>
+        <h2>Preencha os dados para criar um novo time.</h2>
+
+        <TextFild
+          label="Nome"
+          placeholder="Digite o novo time"
+          required={true}
+          value={newTeamName}
+          onChange={(event) => {
+            setNewTeamName(event.target.value);
+          }}
+        />
+        <TextFild
+          label="Cor"
+          placeholder="Digite a cor do time"
+          required={true}
+          value={teamColor}
+          onChange={(event) => {
+            setTeamColor(event.target.value);
+          }}
+        />
+        <Button>Criar novo time</Button>
+      </form>
+
     </section>
   );
 };

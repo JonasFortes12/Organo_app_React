@@ -12,6 +12,11 @@ function App() {
     
   };
 
+  const onRegisterNewTeam = (newTeam) => {
+    setTeams([...teams, {id: uuidv4(), ...newTeam}]);
+    console.log();
+  }
+
   const onDeleteCollaborator = (collaborator) => {
 
     console.log("Colaborador deletado!");
@@ -87,7 +92,11 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Forms itens={teams.map(team => team.name)} onRegisterCollaborator={onRegisterCollaborator} />
+      <Forms 
+      itens={teams.map(team => team.name)} 
+      onRegisterCollaborator={onRegisterCollaborator}
+      onRegisterNewTeam={onRegisterNewTeam} 
+      />
       {
         teams.map((team, index) =>{
           return(
