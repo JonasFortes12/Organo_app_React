@@ -31,6 +31,7 @@ const Team = (props) => {
               key={index}
               name={collaborator.name}
               role={collaborator.role}
+              id={collaborator.id}
               imageLink={collaborator.imageLink}
               colorHeader={props.color}
               onDelete={props.onDeleteCard}

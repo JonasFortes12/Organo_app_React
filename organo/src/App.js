@@ -9,7 +9,6 @@ function App() {
 
   const onRegisterCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
-    
   };
 
   const onRegisterNewTeam = (newTeam) => {
@@ -17,9 +16,12 @@ function App() {
     console.log();
   }
 
-  const onDeleteCollaborator = (collaborator) => {
+  const onDeleteCollaborator = (collaboratorId) => {
 
-    console.log("Colaborador deletado!");
+    const removedCollaborators = collaborators.filter(
+      collaborator => collaborator.id !== collaboratorId
+    ) 
+    setCollaborators([...removedCollaborators])
 
   };
 
