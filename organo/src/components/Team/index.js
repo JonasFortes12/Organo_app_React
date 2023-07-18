@@ -31,10 +31,12 @@ const Team = (props) => {
               key={index}
               name={collaborator.name}
               role={collaborator.role}
+              favorite={collaborator.favorite}
               id={collaborator.id}
               imageLink={collaborator.imageLink}
               colorHeader={props.color}
               onDelete={props.onDeleteCard}
+              onFavoriteChange={props.onFavoriteChange}
             ></Card>
           )
         })}

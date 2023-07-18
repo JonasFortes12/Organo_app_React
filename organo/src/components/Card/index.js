@@ -1,17 +1,26 @@
-import {AiFillCloseCircle} from 'react-icons/ai';
+import {AiFillCloseCircle, AiFillHeart, AiOutlineHeart} from 'react-icons/ai';
 import './Card.css'
 
 
 
 
-const Card = ({name, role, id, imageLink, colorHeader, onDelete}) =>{
+const Card = ({favorite, name, role, id, imageLink, colorHeader, onDelete, onFavoriteChange}) =>{
     
     const styleHeaderCard = {
         backgroundColor: colorHeader
     }
 
-    const deleteCard = (collaboratorId) =>{
+    const deleteCard = () =>{
         onDelete(id);
+    }
+
+    const favoriteChange = () =>{
+        onFavoriteChange(id)
+    }
+
+    const propsFavoriteIcon = {
+        size:25,
+        onClick: favoriteChange
     }
 
     return(
@@ -32,6 +41,12 @@ const Card = ({name, role, id, imageLink, colorHeader, onDelete}) =>{
             <div className='footer'>
                 <h4>{name}</h4>
                 <h5>{role}</h5>
+                <div className='favorite'>
+                    {favorite 
+                    ? <AiFillHeart {...propsFavoriteIcon} color='#FF0000' />
+                    : <AiOutlineHeart {...propsFavoriteIcon}/>
+                    }
+                </div>
             </div>
 
         </div>

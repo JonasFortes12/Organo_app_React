@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import Banner from "./components/Banner";
 import Forms from "./components/Forms";
 import Team from "./components/Team";
@@ -7,12 +7,22 @@ import Footer from "./components/Footer";
 
 function App() {
 
+  const onFavoriteChange = (id) => {
+    setCollaborators(collaborators.map(collaborator => {
+      if (collaborator.id === id) {
+        collaborator.favorite = !collaborator.favorite
+        return collaborator;
+      }
+      return collaborator;
+    }))
+  }
+
   const onRegisterCollaborator = (collaborator) => {
     setCollaborators([...collaborators, collaborator]);
   };
 
   const onRegisterNewTeam = (newTeam) => {
-    setTeams([...teams, {id: uuidv4(), ...newTeam}]);
+    setTeams([...teams, { id: uuidv4(), ...newTeam }]);
     console.log();
   }
 
@@ -20,14 +30,14 @@ function App() {
 
     const removedCollaborators = collaborators.filter(
       collaborator => collaborator.id !== collaboratorId
-    ) 
+    )
     setCollaborators([...removedCollaborators])
 
   };
 
-  const onChangeTeamsColor = (value, id) =>{
-    const teamsChanged = teams.map(team=>{
-      if(team.id === id ){
+  const onChangeTeamsColor = (value, id) => {
+    const teamsChanged = teams.map(team => {
+      if (team.id === id) {
         team.color = value
       }
       return team
@@ -76,6 +86,7 @@ function App() {
   const [collaborators, setCollaborators] = useState([
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Jonas Fortes',
       role: 'Desenvolvedor de Softwares Embarcados',
       imageLink: 'https://github.com/JonasFortes12.png',
@@ -84,34 +95,36 @@ function App() {
 
     {
       id: uuidv4(),
+      favorite: false,
       name: 'Lucas Rafael',
       role: 'Desenvolvedor Junior',
       imageLink: 'https://github.com/luiz.png',
       team: 'Programação'
     }
   ]);
- 
+
   return (
     <div className="App">
       <Banner />
-      <Forms 
-      itens={teams.map(team => team.name)} 
-      onRegisterCollaborator={onRegisterCollaborator}
-      onRegisterNewTeam={onRegisterNewTeam} 
+      <Forms
+        itens={teams.map(team => team.name)}
+        onRegisterCollaborator={onRegisterCollaborator}
+        onRegisterNewTeam={onRegisterNewTeam}
       />
       {
-        teams.map((team, index) =>{
-          return(
-            <Team 
-            key={index} 
-            teamName={team.name}
-            teamId={team.id}
-            color={team.color}
-            collaborators={collaborators.filter(
+        teams.map((team, index) => {
+          return (
+            <Team
+              key={index}
+              teamName={team.name}
+              teamId={team.id}
+              color={team.color}
+              collaborators={collaborators.filter(
                 collaborator => collaborator.team === team.name
-            )}
-            onDeleteCard={onDeleteCollaborator}
-            onChangeTeamsColor={onChangeTeamsColor}
+              )}
+              onDeleteCard={onDeleteCollaborator}
+              onChangeTeamsColor={onChangeTeamsColor}
+              onFavoriteChange={onFavoriteChange}
             ></Team>
           )
         })
