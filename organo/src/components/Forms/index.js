@@ -1,5 +1,5 @@
 import "./Forms.css";
-import TextFild from "../TextFild";
+import Field from "../Field";
 import DropDown from "../DropDown";
 import Button from "../Button";
 import { useState } from "react";
@@ -46,7 +46,7 @@ const Forms = (props) => {
       <form onSubmit={formSave}>
         <h2>Preencha os dados para criar o card do colaborador.</h2>
 
-        <TextFild
+        <Field
           label="Nome"
           placeholder="Digite seu nome"
           required={true}
@@ -55,7 +55,7 @@ const Forms = (props) => {
             setName(event.target.value);
           }}
         />
-        <TextFild
+        <Field
           label="Cargo"
           placeholder="Digite seu cargo"
           required={true}
@@ -64,7 +64,7 @@ const Forms = (props) => {
             setRole(event.target.value);
           }}
         />
-        <TextFild
+        <Field
           label="Imagem"
           placeholder="Informe o endereço de imagem"
           required={true}
@@ -88,7 +88,7 @@ const Forms = (props) => {
       <form onSubmit={formRegisterNewTeam}>
         <h2>Preencha os dados para criar um novo time.</h2>
 
-        <TextFild
+        <Field
           label="Nome"
           placeholder="Digite o novo time"
           required={true}
@@ -97,8 +97,9 @@ const Forms = (props) => {
             setNewTeamName(event.target.value);
           }}
         />
-        <TextFild
+        <Field
           label="Cor"
+          type="color"
           placeholder="Digite a cor do time"
           required={true}
           value={teamColor}

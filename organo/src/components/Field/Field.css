@@ -1,15 +1,15 @@
-.text-fild {
+.field {
   margin: 24px 0;
 }
 
-.text-fild label {
+.field label {
     display: block;
     margin-bottom: 8px;
     font-size: 24px;
 
 }
 
-.text-fild input {
+.field input {
     background-color: #FFF;
     box-shadow: 10xp 10px 30px rgba(0, 0, 0, 0.06);
     width: 100%;
@@ -18,4 +18,9 @@
     padding: 24px;
     box-sizing: border-box;
 
+}
+
+.field-color input {
+  padding: 5px 24px;
+  height: 30px;
 }
